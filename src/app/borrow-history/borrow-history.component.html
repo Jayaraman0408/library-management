@@ -1,0 +1,28 @@
+<div class="container">
+  <h2 style="text-align: center;">Borrow-History</h2>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>User Name</th>
+      <th>Date of Borrowing</th>
+      <th>Date of Returning</th>
+      <th>Status</th>
+      <th>Returned Date</th>
+      <th>Due Amount</th>
+      <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let item of borrwedObjectArray; let i = index">
+      <td>{{item.title}}</td>
+      <td>{{item.userName}}</td>
+      <td>{{item.borrowingDate | date:'dd/MM/yyyy'}}</td>
+      <td>{{item.returningDate | date:'dd/MM/yyyy'}}</td>
+      <td>{{item.status}}</td>
+      <td>{{item.returnedDate | date:'dd/MM/yyyy'}}</td>
+      <td>{{item.dueAmount}}</td>
+      <td><button [disabled]="item.status === 'RETURNED' " style="font-size:24px" (click)="return(i)"><i class="fa fa-undo"></i> </button>
+      </td>
+    </tr>
+  </table>
+
+</div>
